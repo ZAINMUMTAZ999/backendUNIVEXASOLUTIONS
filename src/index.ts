@@ -45,12 +45,12 @@ cloudinary.config({
 });
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use("/v1", registerRouter);
-app.use("/v2", loginRouter);
+// app.use("/v1", registerRouter);
+// app.use("/v2", loginRouter);
 
-// router.use("/v1", registerRouter);
-// router.use("/v2", loginRouter);
-app.use("/.netlify/functions/api", router);
+router.use("/v1", registerRouter);
+router.use("/v2", loginRouter);
+// app.use("/.netlify/functions/api", router);
 
 
 app.listen(8000, ()=>{
